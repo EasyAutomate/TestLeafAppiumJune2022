@@ -49,7 +49,7 @@ public class LearnTouchAction2 {
 						.waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
 						.moveTo(PointOption.point((int) (maxX * 0.5), (int) (maxY * 0.8))).release())
 				.perform();
-
+		driver.quit();
 	}
 
 }
