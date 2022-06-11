@@ -12,5 +12,3 @@ platformName --> Android
 deviceName --> Any (Android)
 appPackage --> Package name / App name given by developer
 appActivity --> Screen name where I should land
-
-

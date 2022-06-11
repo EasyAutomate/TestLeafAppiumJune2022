@@ -6,5 +6,6 @@
 6. To locate Id and Name locators in Hybrid App (WebView) and Mobile web is not working in Appium. NoSuchElementException would be thrown. Known issue for more than a year. We need to convert Id and Name as Xpath and to inspect the element.
 7. If the screenshot is disabled in App, Appium will not be able to identify the locators. We need to ask Dev team to provide a build to identify the locators.
 8. If app is obfuscated then we might have challenges in identifying the locators. We might need to use XPATH for all the places eventhought id/name is provided by the dev team
+9. In case if we have added only "app" as part of desired caps, while trying to launch the app we may end up with error stating "Not a launchable activity"/"app permission denied". In that case add appPackage and appActivty along with the existing desired capabilities.
 
 
