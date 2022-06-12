@@ -7,5 +7,10 @@
 7. If the screenshot is disabled in App, Appium will not be able to identify the locators. We need to ask Dev team to provide a build to identify the locators.
 8. If app is obfuscated then we might have challenges in identifying the locators. We might need to use XPATH for all the places eventhought id/name is provided by the dev team
 9. In case if we have added only "app" as part of desired caps, while trying to launch the app we may end up with error stating "Not a launchable activity"/"app permission denied". In that case add appPackage and appActivty along with the existing desired capabilities.
+10. During swipe, check if the starting co-ordinates are not overlapping with any other element
+11. In case, if swipe is not working try to print the co-ordinates, validate the same in Appium inspector
+12. If you work for a long time in web view and then switch to Native, there are chances of socket hangup. To overcome add newCommandTimeout with a greater time duration
+13. autoGrantPermissions capability will click all elements with id as button1
+
 
 
