@@ -65,7 +65,7 @@ public class AndroidNativeWrappers extends CommonWebWrappers {
 	public String getCurrentActivity() {
 		return ((StartsActivity) driver).currentActivity();
 	}
-	
+
 	public String getCurrentPackage() {
 		return ((StartsActivity) driver).getCurrentPackage();
 	}
