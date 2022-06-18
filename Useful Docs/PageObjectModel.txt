@@ -1,0 +1,58 @@
+Page Object Model
+1. Every page should be a separate class
+2. Every action should be a separate method
+3. Every method should land to the page where it is moving
+4. Verify the page it has landed
+5. Every page should extend the common wrappers
+
+src/main/java
+wrapper
+	GenericWrappers.java
+		public static AppiumDriver();
+
+pages
+	LoginPage.java extends GenericWrappers
+		public LoginPage() {
+		eleIsDisplayed(......);
+		}
+		public LoginPage enterUsername() {
+		return this;
+		}
+		public LoginPage enterPassword() {
+		return this;
+		}
+		public LoginPage clickLoginForFailure() {
+		return this;
+		}
+		public HomePage clickLogin() {
+		return new HomePage();
+		}
+	HomePage.java extends GenericWrappers
+		public HomePage() {
+		eleIsDisplayed(......);
+		}
+
+src/main/resources
+
+src/test/java
+testCases
+	TC001.java
+		public static void main(String[] args) {
+		GenericWrappers gw = new GenericWrappers();
+		gw.launchApp(.....);
+		new LoginPage().enterUsername().enterPassword().clickLogin();
+
+		}
+
+	TC002.java
+		public static void main(String[] args) {
+		GenericWrappers gw = new GenericWrappers();
+		gw.launchApp(.....);
+		new LoginPage().enterUsername().enterPassword().clickLogin().click.........;
+
+		}
+
+src/test/resources
+
+
+

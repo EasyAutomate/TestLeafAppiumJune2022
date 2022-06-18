@@ -1,0 +1,90 @@
+Page Object Model
+1. Every page should be a separate class
+2. Every action should be a separate method
+3. Every method should land to the page where it is moving
+4. Verify the page it has landed
+5. Every page should extend the common wrappers
+
+src/main/java
+wrapper
+	GenericWrappers.java extends ExtentReports
+		public AppiumDriver driver;
+		public void launchApp(....) {
+		driver = A......; 
+		}
+	ProjectSpecificWrappers.java extends GenericWrappers
+		@BeforeMethod
+		public void bm(){
+		createTestCase();
+		launchApp(.....);
+		}
+		@AfterMethod
+		public void am(){
+		closeApp();
+		}
+		@BeforeSuite
+		public void bs() {
+		initializeReports()
+		}
+		@AfterSuite
+		public void as() {
+		saveReports()
+		}
+		
+utils
+	ExtentReports.java
+		public void initializeReports() {
+		}
+		public void createTestCase() {
+		}
+		public void logStatusOfStep() {
+		}
+		public void saveReports() {
+		}
+	DataProvider.java
+
+pages
+	LoginPage.java extends GenericWrappers
+		public LoginPage(AppiumDriver driver) {
+		this.driver = driver;
+		eleIsDisplayed(......);
+		}
+		public LoginPage enterUsername() {
+		logStatusOfStep(Pass,"Desc");
+		return this;
+		}
+		public LoginPage enterPassword() {
+		return this;
+		}
+		public LoginPage clickLoginForFailure() {
+		return this;
+		}
+		public HomePage clickLogin() {
+		return new HomePage();
+		}
+	HomePage.java extends GenericWrappers
+		public HomePage(AppiumDriver driver) {
+		this.driver = driver;
+		eleIsDisplayed(......);
+		}
+
+src/main/resources
+
+src/test/java
+testCases
+	TC001.java extends ProjectSpecificWrappers
+	@Test
+	public void runTC(){
+	new LoginPage(driver).enterUsername().enterPassword().clickLogin();
+	}
+		
+	TC002.java extends ProjectSpecificWrappers
+	@Test
+	public void runTC(){
+	new LoginPage(driver).enterUsername().enterPassword().clickLogin().click.....;
+	}		
+
+src/test/resources
+
+
+

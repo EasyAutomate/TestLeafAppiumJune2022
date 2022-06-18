@@ -1,0 +1,85 @@
+--Cucumber Automation--
+Feature file
+Step Definition
+Automation Code for Step Def
+
+--Manual Testing--
+Suite
+Scenarios
+Test Cases
+Steps
+
+--TestNg--
+Suite
+Test
+Class
+Methods
+
+--Cucumber--
+Project
+Feature
+Scenario
+Step Keywords 
+
+--TC case columns--
+1. S.No
+2. Step Action
+3. Expected Result
+ 
+
+--Gherkin Keywords--
+Given --> Pre condition
+When --> Step Action
+Then --> Expected Result
+And --> Supporting keyword
+But --> Negative Expected Result
+* --> Wild Card
+
+
+----Feature File----
+login.feature
+
+Feature: Login scenario
+
+Scenario: Succesful login
+Given App is launched
+When Username is entered as ....
+And Password is entered as ....
+And Login button is clicked
+Then Home page is displayed
+
+Scenario: Invalid login
+Given App is launched
+When Username is entered as ....
+And Password is entered as ....
+And Login button is clicked
+But Error message is displayed
+
+--Step Definition--
+public class StepDef(){
+
+@Given("Username is entered as ....")
+public void enterUN() {
+....Automation Code...
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

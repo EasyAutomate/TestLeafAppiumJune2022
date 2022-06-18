@@ -1,0 +1,94 @@
+Page Object Model
+1. Every page should be a separate class
+2. Every action should be a separate method
+3. Every method should land to the page where it is moving
+4. Verify the page it has landed
+5. Every page should extend the common wrappers
+
+src/main/java
+hooks
+	Hooks.java
+		
+wrapper
+	GenericWrappers.java extends AbstractTestNGCucumberTests
+		public ThreadLocal<AppiumDriver> driver = new Thr.....;
+
+		getter....
+
+		setter ...
+		public void launchApp(....) {
+		driver.set(A......); 
+		}	
+		
+pages
+	LoginPage.java extends GenericWrappers
+		public LoginPage() {
+		eleIsDisplayed(......);
+		}
+		@Given("Username is entered as ....")
+		public LoginPage enterUsername() {
+		return this;
+		}
+		@Given("Password is entered as ....")
+		public LoginPage enterPassword() {
+		return this;
+		}
+	
+		@Given("Login button is clicked")
+		public LoginPage clickLoginForFailure() {
+		return this;
+		}
+		
+		//public HomePage clickLogin() {
+		//return new HomePage();
+		//}
+	HomePage.java extends GenericWrappers
+		public HomePage() {
+		eleIsDisplayed(......);
+		}
+		
+		@Given("Home page is displayed")
+		public void verifyHP(){
+		eleIsDisplayed(......);
+		}
+		
+		
+
+src/main/resources
+
+src/test/java	
+runner
+	TestRunner.java
+	@CucumberOptions(feature={....},glue={"pages","hooks"})
+
+	public class TestRunner() extends GenericWrappers{
+		@BeforeMethod
+		public void bm(){
+		launchApp(.....);
+		}
+		@AfterMethod
+		public void am(){
+		closeApp();
+		}
+
+	}
+src/test/resources
+features
+	login.feature
+
+Feature: Login scenario
+
+Scenario: Succesful login
+When Username is entered as ....
+And Password is entered as ....
+And Login button is clicked
+Then Home page is displayed
+
+Scenario: Invalid login
+When Username is entered as ....
+And Password is entered as ....
+And Login button is clicked
+But Error message is displayed
+
+
+
