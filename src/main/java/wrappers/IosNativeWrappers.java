@@ -24,7 +24,7 @@ public class IosNativeWrappers extends AndroidWebWrappers {
 		params.put("order", "next");
 		params.put("offset", 0.15);
 		params.put("element", getWebElement(locator, locatorValue));
-		driver.executeScript("mobile: selectPickerWheelValue", params);
+		getDriver().executeScript("mobile: selectPickerWheelValue", params);
 		return true;
 	}
 
@@ -33,7 +33,7 @@ public class IosNativeWrappers extends AndroidWebWrappers {
 		params.put("order", "next");
 		params.put("offset", 0.15);
 		params.put("element", ele);
-		driver.executeScript("mobile: selectPickerWheelValue", params);
+		getDriver().executeScript("mobile: selectPickerWheelValue", params);
 		return true;
 	}
 
@@ -42,7 +42,7 @@ public class IosNativeWrappers extends AndroidWebWrappers {
 		params.put("order", "previous");
 		params.put("offset", 0.15);
 		params.put("element", getWebElement(locator, locatorValue));
-		driver.executeScript("mobile: selectPickerWheelValue", params);
+		getDriver().executeScript("mobile: selectPickerWheelValue", params);
 		return true;
 	}
 
@@ -51,12 +51,12 @@ public class IosNativeWrappers extends AndroidWebWrappers {
 		params.put("order", "previous");
 		params.put("offset", 0.15);
 		params.put("element", ele);
-		driver.executeScript("mobile: selectPickerWheelValue", params);
+		getDriver().executeScript("mobile: selectPickerWheelValue", params);
 		return true;
 	}
 
 	public void clickGivenKeyboardButtonInIosByName(String name) {
-		boolean isNative = ((SupportsContextSwitching) driver).getContext().equalsIgnoreCase("NATIVE_APP");
+		boolean isNative = ((SupportsContextSwitching) getDriver()).getContext().equalsIgnoreCase("NATIVE_APP");
 		if (!isNative) {
 			switchNativeview();
 		}
@@ -69,7 +69,7 @@ public class IosNativeWrappers extends AndroidWebWrappers {
 	}
 
 	public void clickGivenKeyboardButtonInIosByXpath(String xPath) {
-		boolean isNative = ((SupportsContextSwitching) driver).getContext().equalsIgnoreCase("NATIVE_APP");
+		boolean isNative = ((SupportsContextSwitching) getDriver()).getContext().equalsIgnoreCase("NATIVE_APP");
 		if (!isNative) {
 			switchNativeview();
 		}
