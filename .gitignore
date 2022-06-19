@@ -9,3 +9,4 @@ release.properties
 /test-output/
 .DS_STORE
 */.DS_STORE
+/bin/
