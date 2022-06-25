@@ -32,7 +32,7 @@ public class CommonWebWrappers extends CommonNativeWrappers {
 			// Mandatory desired capabilities
 			dc.setCapability("browserName", browserName);
 			dc.setCapability("deviceName", deviceName);
-			dc.setCapability("platformName", platformName);
+			//dc.setCapability("platformName", platformName);
 			// Comment the below line based on need
 			dc.setCapability("noReset", true);
 			if (platformName.equalsIgnoreCase("Android")) {

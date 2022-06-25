@@ -4,8 +4,6 @@ import java.util.HashMap;
 
 import org.openqa.selenium.WebElement;
 
-import io.appium.java_client.remote.SupportsContextSwitching;
-
 public class IosNativeWrappers extends AndroidWebWrappers {
 
 	public boolean launchIosApp(String deviceName, String udid, String xcodeOrgId, String bundleId, String app) {
@@ -53,32 +51,6 @@ public class IosNativeWrappers extends AndroidWebWrappers {
 		params.put("element", ele);
 		driver.executeScript("mobile: selectPickerWheelValue", params);
 		return true;
-	}
-
-	public void clickGivenKeyboardButtonInIosByName(String name) {
-		boolean isNative = ((SupportsContextSwitching) driver).getContext().equalsIgnoreCase("NATIVE_APP");
-		if (!isNative) {
-			switchNativeview();
-		}
-		if (isKeyboardShown()) {
-			click(getWebElement(Locators.NAME.toString(), name));
-		}
-		if (!isNative) {
-			switchWebview();
-		}
-	}
-
-	public void clickGivenKeyboardButtonInIosByXpath(String xPath) {
-		boolean isNative = ((SupportsContextSwitching) driver).getContext().equalsIgnoreCase("NATIVE_APP");
-		if (!isNative) {
-			switchNativeview();
-		}
-		if (isKeyboardShown()) {
-			click(getWebElement(Locators.XPATH.toString(), xPath));
-		}
-		if (!isNative) {
-			switchWebview();
-		}
 	}
 
 }

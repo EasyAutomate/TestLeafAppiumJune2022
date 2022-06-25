@@ -24,8 +24,7 @@ public class LearniOSInSauceLabs {
 		sauceOptions.setCapability("name", "Appium_June_Sample");
 		caps.setCapability("sauce:options", sauceOptions);
 
-		URL url = new URL(
-				"https://appiumjune2022:5007af77-cc76-4a7c-8ad5-419bacff04bd@ondemand.us-west-1.saucelabs.com:443/wd/hub");
+		URL url = new URL("Cloud URL");
 		IOSDriver driver = new IOSDriver(url, caps);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.findElement(AppiumBy.accessibilityId("Action Sheets")).click();

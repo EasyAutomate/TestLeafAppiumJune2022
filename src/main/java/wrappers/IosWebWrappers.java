@@ -1,5 +1,7 @@
 package wrappers;
 
+import io.appium.java_client.remote.SupportsContextSwitching;
+
 public class IosWebWrappers extends IosNativeWrappers {
 
 	public boolean launchSafariBrowser(String deviceName, String URL, String udid) {
@@ -12,7 +14,6 @@ public class IosWebWrappers extends IosNativeWrappers {
 	}
 
 	public boolean deleteSafariCookies() {
-		switchToAnotherApp("com.apple.Preferences");
 		stopRunningApp("com.apple.Preferences");
 		switchToAnotherApp("com.apple.Preferences");
 		switchNativeview();
@@ -33,5 +34,47 @@ public class IosWebWrappers extends IosNativeWrappers {
 		switchToAnotherApp("com.apple.mobilesafari");
 		switchWebview();
 		return true;
+	}
+
+	public void clickGivenKeyboardButtonInIosByName(String name) {
+		boolean isNative = ((SupportsContextSwitching) driver).getContext().equalsIgnoreCase("NATIVE_APP");
+		String context = ((SupportsContextSwitching) driver).getContext();
+		if (!isNative) {
+			switchNativeview();
+		}
+		if (isKeyboardShown()) {
+			click(getWebElement(Locators.NAME.toString(), name));
+		}
+		if (!isNative) {
+			switchContext(context);
+		}
+	}
+	
+	public void clickGivenKeyboardButtonInIosByAccessibilityId(String accessId) {
+		boolean isNative = ((SupportsContextSwitching) driver).getContext().equalsIgnoreCase("NATIVE_APP");
+		String context = ((SupportsContextSwitching) driver).getContext();
+		if (!isNative) {
+			switchNativeview();
+		}
+		if (isKeyboardShown()) {
+			click(getWebElement(Locators.ACCESSIBILITY_ID.toString(), accessId));
+		}
+		if (!isNative) {
+			switchContext(context);
+		}
+	}
+
+	public void clickGivenKeyboardButtonInIosByXpath(String xPath) {
+		boolean isNative = ((SupportsContextSwitching) driver).getContext().equalsIgnoreCase("NATIVE_APP");
+		String context = ((SupportsContextSwitching) driver).getContext();
+		if (!isNative) {
+			switchNativeview();
+		}
+		if (isKeyboardShown()) {
+			click(getWebElement(Locators.XPATH.toString(), xPath));
+		}
+		if (!isNative) {
+			switchContext(context);
+		}
 	}
 }

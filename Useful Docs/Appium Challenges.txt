@@ -11,6 +11,10 @@
 11. In case, if swipe is not working try to print the co-ordinates, validate the same in Appium inspector
 12. If you work for a long time in web view and then switch to Native, there are chances of socket hangup. To overcome add newCommandTimeout with a greater time duration
 13. autoGrantPermissions capability will click all elements with id as button1
-
-
-
+14. In iOS, we need to manually identify the keyboard and then click on the keys
+15. For  numeric keyboard, hidekeyboard() wont work. Identify the element and the click on it
+16. In webViews, Keyboard has to be switched to Native then perform the action and then switch back to WebView 
+17. Toast/Capacha cannot be automated
+18. driver.executeScript will work only if relaxed security flag is enabled
+19. In iOS, web view id is dynamic. So it is difficult to use exact web view in driver.context()
+20. Check if any other web view/browser is opened if we automate hybrid/web app. So kill all the other running apps before the test starts.

@@ -6,8 +6,6 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.MutableCapabilities;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 import io.appium.java_client.android.AndroidDriver;
 
@@ -15,7 +13,7 @@ public class LearnAndroidInSauceLabs {
 
 	public static void main(String[] args) throws MalformedURLException {
 		MutableCapabilities caps = new MutableCapabilities();
-		//caps.setCapability("platformName", "Android");
+		// caps.setCapability("platformName", "Android");
 		caps.setCapability("appium:app", "storage:filename=leaforg.apk");
 		caps.setCapability("appium:deviceName", "Google Pixel 4a (5G) GoogleAPI Emulator");
 		caps.setCapability("appium:platformVersion", "12.0");
@@ -25,7 +23,7 @@ public class LearnAndroidInSauceLabs {
 		sauceOptions.setCapability("name", "Appium_June_Sample");
 		caps.setCapability("sauce:options", sauceOptions);
 
-		URL url = new URL("https://appiumjune2022:5007af77-cc76-4a7c-8ad5-419bacff04bd@ondemand.us-west-1.saucelabs.com:443/wd/hub");
+		URL url = new URL("Cloud URL");
 		AndroidDriver driver = new AndroidDriver(url, caps);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.findElement(By.xpath("(//android.widget.EditText)[1]")).sendKeys("rajkumar@testleaf.com");

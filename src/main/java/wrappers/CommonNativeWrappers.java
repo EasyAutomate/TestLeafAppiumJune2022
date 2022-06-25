@@ -543,7 +543,24 @@ public class CommonNativeWrappers {
 	// To hide the keyboard if it is visible
 	public void hideKeyboard() {
 		if (isKeyboardShown()) {
-			((HidesKeyboard) driver).hideKeyboard();
+			try {
+				((HidesKeyboard) driver).hideKeyboard();
+			} catch (Exception e) {
+				if (driver.getCapabilities().getPlatformName().toString().equalsIgnoreCase("iOS")) {
+					boolean isNative = ((SupportsContextSwitching) driver).getContext().equalsIgnoreCase("NATIVE_APP");
+					String context = ((SupportsContextSwitching) driver).getContext();
+					if (!isNative) {
+						switchNativeview();
+					}
+					if (isKeyboardShown()) {
+						click(getWebElement(Locators.ACCESSIBILITY_ID.toString(), "Done"));
+					}
+					if (!isNative) {
+						switchContext(context);
+					}
+
+				}
+			}
 		}
 	}
 

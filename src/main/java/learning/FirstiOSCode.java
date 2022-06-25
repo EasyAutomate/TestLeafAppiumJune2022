@@ -15,7 +15,7 @@ public class FirstiOSCode {
 	public static void main(String[] args) throws MalformedURLException {
 		DesiredCapabilities dc = new DesiredCapabilities();
 		dc.setCapability("app", System.getProperty("user.dir") + "/apks/UiCatalog.zip");
-		dc.setCapability("deviceName", "iPhone 13 mini");
+		dc.setCapability("deviceName", "iPhone SE (3rd generation)");
 		dc.setCapability("platformName", "iOS");
 		dc.setCapability("automationName", "XCUITest");
 		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), dc);
