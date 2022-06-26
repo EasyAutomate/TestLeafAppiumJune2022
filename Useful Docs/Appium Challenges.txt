@@ -1,4 +1,4 @@
-1. Appium can automate only visible portion of code
+1. Appium can automate only visible portion of screen
 2. In most of the cases (Native app) we would be using XPATH as the locator since most of the app would be built earlier before we start the automation. So we need be careful in writing the XPATH. Note: Never use the index option as it changes based on the screen size. Try to use other option to write your XPATH eg. with text, preceding, following etc.
 3. If you search an element in Appium Inspector and click, it might not hightlight in image (Known bug from 1.21.0. Use 1.20.X to overcome this issue)
 4. To inspect or use Appium inspector for hybrid apps, click the web icon on top, choose the dropdown option for Webview and then start inspecting it. I recommend to use Chrome Inspector (chrome://inspect) rather using Appium inspector for Hybrid App (WebView) and Mobile web
